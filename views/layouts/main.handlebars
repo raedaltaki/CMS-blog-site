@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
+<body class="m-0">
     <header class="p-3 mb-2 bg-secondary">
 
       <nav class="navbar navbar-dark">
@@ -17,25 +17,22 @@
           <a class="text-white" href="/">CMS BLOG SITE</a>
         </h1>
         <div>
-        {{!-- {{#if loggedIn}} --}}
+        {{#if loggedIn}}
           <a class="text-white m-2 h5" href="/dashboard">dashboard</a>
           <button class="btn btn-link text-white btn-lg mb-2"  id="logout">logout</button>
-        {{!-- {{else}} --}}
+        {{else}}
           <a class="text-white m-2 h5" href="/login">login</a>
-        {{!-- {{/if}} --}}
+        {{/if}}
         </div>
       </nav>
     </header>
     <main class="mw-100 mh-100">
       {{{ body }}}
     </main>
-    <footer class="bg-secondary p-3 fixed-bottom text-center text-white h3">
-      Thanks for visiting!
-    </footer>
 
-  {{!-- {{#if loggedIn}}
+  {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
-  {{/if}} --}}
+  {{/if}}
 </body>
 
 </html>

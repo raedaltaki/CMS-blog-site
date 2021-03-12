@@ -1,13 +1,19 @@
+<h3 class="m-4 text-center">Dashbord "{{username}}"</h3>
+
 <ul class="list-group">
   {{#each posts as |post|}}
   <li class="">
-    {{> post-info post }}
+    <a href="dashboard/edit/{{id}}">
+      {{> post-info post }}
+    </a>
   </li>
   {{/each}}
 </ul>
 
-    {{> new-update-post "Create" }}
+    {{> new-update-post this }}
 
-<div class="p-3 d-flex justify-content-center align-items-end">
-    <button class="btn btn-dark btn-lg"> + New Post</button>
+<div class="p-3 d-flex justify-content-center">
+    <button id="newPostBtn" class="btn btn-dark btn-lg"> + New Post</button>
 </div>
+
+<script src="/javascript/new-post.js"></script>
