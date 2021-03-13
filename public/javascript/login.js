@@ -32,6 +32,7 @@ async function loginBtnHandler(event)
         } 
         else 
         {
+            window.alert("please check your username and password");
             alert(response.statusText);
         }
     }

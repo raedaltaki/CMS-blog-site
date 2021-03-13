@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {Post,User,Comment} = require('../models');
+const withAuth = require('../utils/auth');
 router.get('/',(req,res)=>
 {
     Post.findAll(
@@ -32,7 +33,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard',withAuth, (req, res) => {
     Post.findAll(
         {
             where:
@@ -57,7 +58,7 @@ router.get('/dashboard', (req, res) => {
         });
 });
 
-router.get('/dashboard/edit/:id', (req, res) => {
+router.get('/dashboard/edit/:id',withAuth, (req, res) => {
     Post.findOne(
         {
             where:
@@ -74,7 +75,68 @@ router.get('/dashboard/edit/:id', (req, res) => {
         {
             const post = data.get({ plain: true });
             const task = "edit";
-            res.render('edit-post',{post,username:req.session.username,loggedIn:req.session.loggedIn,task:task});
+            res.render('edit-post',{post,username:req.session.username,loggedIn:req.session.loggedIn,task:task,edit:true});
+        })
+        .catch(err => 
+        {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+
+router.get('/posts/:id', (req, res) => {
+    Post.findOne(
+        {
+            where:
+            {
+                id:req.params.id
+            },
+            include:
+            [
+                {
+                    model:User
+                },
+                {
+                    model:Comment,
+                    include:
+                    {
+                        model:User
+                    }
+                }
+            ]
+
+        })
+        .then(data=>
+        {
+            const post = data.get({ plain: true });
+            console.log(post);
+            res.render('single-post',{post, username:req.session.username, loggedIn:req.session.loggedIn});
+        })
+        .catch(err => 
+        {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/posts/add-comment/:id',withAuth, (req, res) => {
+    
+    Post.findOne(
+        {
+            where:
+            {
+                id:req.params.id
+            },
+            include:        
+            {
+                model:User
+            }
+        })
+        .then(data=>
+        {
+            const post = data.get({ plain: true });
+            res.render('add-comment',{post, username:req.session.username, loggedIn:req.session.loggedIn});
         })
         .catch(err => 
         {

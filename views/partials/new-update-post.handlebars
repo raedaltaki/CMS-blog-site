@@ -14,6 +14,9 @@
                 <textarea class="form-control" id="post-body" placeholder="Post">{{post.body}}</textarea> 
             </div>
             <button id="{{task}}Btn" type="click" class="btn btn-dark">{{task}}</button>
+            {{#if edit}}
+            <button id="deleteBtn" type="click" class="btn btn-dark">delete</button>
+            {{/if}}
         </div>
     </div>
 
