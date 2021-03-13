@@ -5,9 +5,6 @@ async function loginBtnHandler(event)
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    console.log("username",username);
-    console.log("Password",password);
-
     if(username && password)
     {
         const res= await fetch("/api/users/login",
@@ -44,9 +41,6 @@ async function signupBtnHandler(event)
 
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
-
-    console.log("username",username);
-    console.log("Password",password);
 
     if(username && password)
     {
