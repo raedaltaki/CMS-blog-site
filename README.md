@@ -4,7 +4,7 @@
 
   ## Description
 
-  A back end for my e-commerce website that uses the latest technologies.
+  CMS-style blog site that allow publishing articles, blog posts, thoughts and opinions
   
   ## Table of Contents
 
@@ -18,57 +18,94 @@
 
   ## Installation
 
-    1- Clone the Repository.
-    2- Create a file name ".env" to the root folder.
-    3- Add to ".env" file DB_NAME='database name' , DB_USER='your username' , DB_PW='your password'.
-    4- Run npm install in the terminal.
-    5- Run npm run seed.
-    6- Run npm start.
+    1- Open the website https://pacific-ridge-94439.herokuapp.com/
+    2- Create a newuser
+    3- create a new post and comment on other's posts
 
     
-
-
   ## Usage
 
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
+GIVEN a CMS-style blog site
 
-THEN I am able to connect to a database using Sequelize
+WHEN I visit the site for the first time
 
-WHEN I enter schema and seed commands
+THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
 
-THEN a development database is created and is seeded with test data
+WHEN I click on the homepage option
 
-WHEN I enter the command to invoke the application
+THEN I am taken to the homepage
 
-THEN my server is started and the Sequelize models are synced to the MySQL database
+WHEN I click on any other links in the navigation
 
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
+THEN I am prompted to either sign up or sign in
 
-THEN the data for each of these routes is displayed in a formatted JSON
+WHEN I choose to sign up
 
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
+THEN I am prompted to create a username and password
 
-THEN I am able to successfully create, update, and delete data in my database
+WHEN I click on the sign-up button
 
-![Image 1](./assets/images/get-demo.gif)
-![Image 2](./assets/images/post-demo.gif)
+THEN my user credentials are saved and I am logged into the site
 
-  Walkthrough video: https://drive.google.com/file/d/1T9Kx8TmyQiaeHoLXJAzLzmutyTtUe9zD/view
+WHEN I revisit the site at a later time and choose to sign in
+
+THEN I am prompted to enter my username and password
+
+WHEN I am signed in to the site
+
+THEN I see navigation links for the homepage, the dashboard, and the option to log out
+
+WHEN I click on the homepage option in the navigation
+
+THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
+
+WHEN I click on an existing blog post
+
+THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+
+WHEN I enter a comment and click on the submit button while signed in
+
+THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+
+WHEN I click on the dashboard option in the navigation
+
+THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+
+WHEN I click on the button to add a new blog post
+
+THEN I am prompted to enter both a title and contents for my blog post
+
+WHEN I click on the button to create a new blog post
+
+THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
+
+WHEN I click on one of my existing posts in the dashboard
+
+THEN I am able to delete or update my post and taken back to an updated dashboard
+
+WHEN I click on the logout option in the navigation
+
+THEN I am signed out of the site
+
+WHEN I am idle on the page for more than a set time
+
+THEN I am automatically signed out of the site 
+
+![Image 1](./public/assets/images/14-mvc-homework-demo-01.gif)
+
+ Deployed Link: https://pacific-ridge-94439.herokuapp.com/
   
-  Repository: https://github.com/raedaltaki/Ecommerce-BackEnd
+  Repository: https://github.com/raedaltaki/CMS-blog-site
 
   ## Contributing
 
   https://courses.bootcampspot.com/
 
-  https://github.com/coding-boot-camp/fantastic-umbrella
-  
-
   ## Tests
 
-  Walkthrough video: https://drive.google.com/file/d/1T9Kx8TmyQiaeHoLXJAzLzmutyTtUe9zD/view
+  Deployed Link: https://pacific-ridge-94439.herokuapp.com/
   
-  Repository: https://github.com/raedaltaki/Ecommerce-BackEnd
+  Repository: https://github.com/raedaltaki/CMS-blog-site
 
   ## Questions
 
